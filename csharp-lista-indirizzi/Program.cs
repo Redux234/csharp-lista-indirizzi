@@ -16,14 +16,14 @@ try
     {
         string riga = file.ReadLine();
 
-        string[] infoindirizzo = riga.Split(", ");
+        string[] infoindirizzo = riga.Split(",");
 
         string name = infoindirizzo[0];
         string surname = infoindirizzo[1];
         string street = infoindirizzo[2];
         string city = infoindirizzo[3];
         string province = infoindirizzo[4];
-        int zip = int.Parse(infoindirizzo[5]);
+        string zip = infoindirizzo[5];
 
         Indirizzo indirizzoestratto = new Indirizzo(name, surname, street, city, province, zip);
         listaindirizzi.Add(indirizzoestratto);
@@ -36,7 +36,10 @@ try
     Console.WriteLine(e.Message);
 }
 
-foreach(Indirizzo indirizzo in listaindirizzi)
+foreach(Indirizzo indirizzoestratto in listaindirizzi)
 {
-    Console.WriteLine(indirizzo);
+    Console.WriteLine("-------Indirizzo-------");
+    indirizzoestratto.StampaIndirizzo();
+    Console.WriteLine();
 }
+

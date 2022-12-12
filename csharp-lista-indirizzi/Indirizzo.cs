@@ -13,10 +13,10 @@ namespace csharp_lista_indirizzi
         private string street;
         private string city;
         private string province;
-        private int zip;
+        private string zip;
 
 
-        public Indirizzo(string name, string surname, string street, string city, string province, int zip)
+        public Indirizzo(string name, string surname, string street, string city, string province, string zip)
         {
             this.name = name;
             this.surname = surname;
@@ -46,7 +46,7 @@ namespace csharp_lista_indirizzi
         {
             return province;
         }
-        public int GetZip()
+        public string GetZip()
         {
             return zip;
         }
@@ -67,9 +67,23 @@ namespace csharp_lista_indirizzi
         {
             this.province = province;
         }
-        public void SetZip(int zip)
+        public void SetZip(string zip)
         {
             this.zip = zip;
+        }
+
+        public void StampaIndirizzo()
+        {
+            Console.WriteLine("Nome: " + this.name);
+            Console.WriteLine("Cognome: " + this.surname);
+            Console.WriteLine("Via: " + this.street);
+            Console.WriteLine("Città: " + this.city);
+
+            Console.WriteLine("Provincia di " + this.province);
+            Console.WriteLine("Cap: " + this.zip);
+  
+
+
         }
     }
 }
