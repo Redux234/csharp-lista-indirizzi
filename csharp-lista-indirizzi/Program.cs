@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 
 List<Indirizzo> listaindirizzi = new List<Indirizzo>();
 
+
 try
 {
     StreamReader file =
@@ -27,16 +28,17 @@ try
 
         Indirizzo indirizzoestratto = new Indirizzo(name, surname, street, city, province, zip);
         listaindirizzi.Add(indirizzoestratto);
-
+        
     }
-
     file.Close();
-} catch(Exception e)
+
+} catch(ArgumentOutOfRangeException e)
 {
     Console.WriteLine(e.Message);
+    
 }
 
-foreach(Indirizzo indirizzoestratto in listaindirizzi)
+foreach (Indirizzo indirizzoestratto in listaindirizzi)
 {
     Console.WriteLine("-------Indirizzo-------");
     indirizzoestratto.StampaIndirizzo();

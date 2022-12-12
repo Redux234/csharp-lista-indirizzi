@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_lista_indirizzi
 {
-    public class Indirizzo
+    public abstract class Indirizzo
     {
         private string name;
         private string surname;
@@ -18,9 +18,34 @@ namespace csharp_lista_indirizzi
 
         public Indirizzo(string name, string surname, string street, string city, string province, string zip)
         {
-            this.name = name;
-            this.surname = surname;
-            this.street = street;
+            if(name == "")
+            {
+                throw new ArgumentOutOfRangeException("name", "uno dei nomi non è stato identificato");
+            }
+            else
+            {
+                this.name = name;
+            }
+           
+            if(surname == "")
+            {
+                throw new ArgumentOutOfRangeException("suranme", "un cognome non è stato identificato");
+
+            }
+            else
+            {
+                this.surname = surname;
+            }
+        
+            if(street == "")
+            {
+                throw new ArgumentOutOfRangeException("street", "una via non è stata identificata");
+
+            }else
+            {
+                this.street = street;
+            }
+            
             this.city = city;
             this.province = province;
             this.zip = zip;
@@ -53,15 +78,38 @@ namespace csharp_lista_indirizzi
 
         public void SetName(string name)
         {
-            this.name = name;
+            if (name == "")
+            {
+                this.name = "";
+            }
+            else
+            {
+                this.name = name;
+            }
         }
         public void SetSurname(string surname)
         {
-            this.surname = surname;
+            if (surname == "")
+            {
+                throw new ArgumentOutOfRangeException("suranme", "un cognome non è stato identificato");
+
+            }
+            else
+            {
+                this.surname = surname;
+            }
         }
         public void SetStreet(string street)
         {
-            this.street = street;
+            if (street == "")
+            {
+                throw new ArgumentOutOfRangeException("street", "una via non è stata identificata");
+
+            }
+            else
+            {
+                this.street = street;
+            }
         }
         public void SetProvince(string province)
         {
@@ -78,7 +126,6 @@ namespace csharp_lista_indirizzi
             Console.WriteLine("Cognome: " + this.surname);
             Console.WriteLine("Via: " + this.street);
             Console.WriteLine("Città: " + this.city);
-
             Console.WriteLine("Provincia di " + this.province);
             Console.WriteLine("Cap: " + this.zip);
   
